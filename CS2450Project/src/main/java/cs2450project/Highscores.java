@@ -5,20 +5,25 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.1
-*   Date last modified: 9/14/2019
+*   Date last modified: 9/25/2019
 *
 *   Purpose: This class generates the high scores from a text file.
 *
 *********************************************************************/
 package cs2450project;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 
 public class Highscores extends javax.swing.JFrame {
@@ -26,6 +31,7 @@ public class Highscores extends javax.swing.JFrame {
     //Constructor
     public Highscores() {
         initComponents();
+        bindKeys();
         checkFile();
         loadFile();
         this.setResizable(false);
@@ -217,13 +223,18 @@ public class Highscores extends javax.swing.JFrame {
         }
     }
     
-    public void checkFile() {
+    //Method: checkFile()
+    //Purpose: Checks if the file "temphighscores.txt" exists, we do not want this file
+    //so it will be deleted if it exists
+    private void checkFile() {
         File checkTempFile = new File("temphighscores.txt");
         if(checkTempFile.exists())
             checkTempFile.delete();
     }
     
-    public void deleteFile() {
+    //Method: deleteFile()
+    //Purpose: Deletes high scores file
+    private void deleteFile() {
         File hsFile = new File("highscores.txt");
         if(hsFile.exists())
             hsFile.delete();
@@ -299,6 +310,31 @@ public class Highscores extends javax.swing.JFrame {
         } catch (IOException ex) {
         }
     }
+    
+    //Method: bindKeys()
+    //Purpose: Binds Escape key to exit program and F1 to show info
+    private void bindKeys() {
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        rootPane.getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "popUpDisplay");
+        rootPane.getActionMap().put("popUpDisplay", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(rootPane, "Names & Bronco #s:\n"
+                        + "Steven Phung 010433202\n"
+                        + "Alex Vargas 011633258\n"
+                        + "Team Name: //temporary fix\n"
+                        + "Term: Fall Semester 2019");
+            }
+        });
+    }
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JButton clearList;

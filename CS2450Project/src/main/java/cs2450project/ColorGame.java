@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.1
-*   Date last modified: 9/14/2019
+*   Date last modified: 9/25/2019
 *
 *   Purpose: This class generates the colored buttons game and
 *           handles all the logic.
@@ -16,28 +16,39 @@ package cs2450project;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
 public class ColorGame extends javax.swing.JFrame {
     
+    //Color bank
     private static final String[] COLOR_BANK = { "Red", "Yellow", "Green", "Blue", "Purple" };
+    //Randomize order of which colors to choose from
     private String[] colors;
+    //Keep track of current color and current word
     private String currentColor, currentWord;
+    //Keep track of score, overall score, and how many rounds is played
     private int roundScore, overallScore, maxRounds;
 
+    //Constructor
     public ColorGame(int score) {
         initComponents();
         initVariables(score);
         currentDateAndTime();
         randomizeAnswer();
         randomizeButtons();
+        bindKeys();
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -239,9 +250,10 @@ public class ColorGame extends javax.swing.JFrame {
     }//GEN-LAST:event_button5MouseClicked
 
     //Method: update(String)
-    //Purpose: String argument is the color the user picked, if correct we increment
-    //the score, then start a new round with new colors and new buttons
-    //Once the player has played 5 rounds, the game ends.
+    //Purpose: String argument is the color the user picked, if correct we increment the
+    //score, then start a new round with new colors and new buttons in different spots.
+    //Once the player has completed playing 5 rounds, the color game ends and we switch
+    //to the sudoku game.
     private void update(String color) {
         if(maxRounds < 5) {
             if(color.equals(currentColor)) {
@@ -431,6 +443,30 @@ public class ColorGame extends javax.swing.JFrame {
         Random rng = new Random();
         int rdm = rng.nextInt(range);
         return rdm;
+    }
+    
+    //Method: bindKeys()
+    //Purpose: Binds Escape key to exit program and F1 to show info
+    private void bindKeys() {
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        rootPane.getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "popUpDisplay");
+        rootPane.getActionMap().put("popUpDisplay", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(rootPane, "Names & Bronco #s:\n"
+                        + "Steven Phung 010433202\n"
+                        + "Alex Vargas 011633258\n"
+                        + "Team Name: //temporary fix\n"
+                        + "Term: Fall Semester 2019");
+            }
+        });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

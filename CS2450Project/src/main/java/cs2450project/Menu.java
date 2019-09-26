@@ -5,18 +5,26 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.1
-*   Date last modified: 9/9/2019
+*   Date last modified: 9/25/2019
 *
 *   Purpose: This class will generate a menu with appropriate buttons
 * 
 *********************************************************************/
 package cs2450project;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
+
 public class Menu extends javax.swing.JFrame {
     
     //Constructor
     public Menu() {
         initComponents();
+        bindKeys();
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -142,6 +150,30 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
+    //Method: bindKeys()
+    //Purpose: Binds Escape key to exit program and F1 to show info
+    private void bindKeys() {
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        rootPane.getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "popUpDisplay");
+        rootPane.getActionMap().put("popUpDisplay", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(rootPane, "Names & Bronco #s:\n"
+                        + "Steven Phung 010433202\n"
+                        + "Alex Vargas 011633258\n"
+                        + "Team Name: //temporary fix\n"
+                        + "Term: Fall Semester 2019");
+            }
+        });
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel campfireIcon;
     private javax.swing.JButton creditsButton;

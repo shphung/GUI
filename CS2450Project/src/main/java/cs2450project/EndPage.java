@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.1
-*   Date last modified: 9/14/2019
+*   Date last modified: 9/25/2019
 *
 *   Purpose: This class generates the end page and relevant scores.
 *
@@ -14,6 +14,11 @@ package cs2450project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
 public class EndPage extends javax.swing.JFrame {
@@ -24,6 +29,7 @@ public class EndPage extends javax.swing.JFrame {
         initComponents();
         display(score);
         checkScore(score);
+        bindKeys();
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -131,6 +137,30 @@ public class EndPage extends javax.swing.JFrame {
         timer.start();
     }
 
+    //Method: bindKeys()
+    //Purpose: Binds Escape key to exit program and F1 to show info
+    private void bindKeys() {
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        rootPane.getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "popUpDisplay");
+        rootPane.getActionMap().put("popUpDisplay", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(rootPane, "Names & Bronco #s:\n"
+                        + "Steven Phung 010433202\n"
+                        + "Alex Vargas 011633258\n"
+                        + "Team Name: //temporary fix\n"
+                        + "Term: Fall Semester 2019");
+            }
+        });
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel jPanel1;

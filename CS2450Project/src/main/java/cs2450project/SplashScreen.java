@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.1
-*   Date last modified: 9/9/2019
+*   Date last modified: 9/25/2019
 *
 *   Purpose: This class will generate a splash screen with custom font
 * 
@@ -15,7 +15,13 @@ package cs2450project;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 public class SplashScreen extends javax.swing.JFrame {
     
@@ -29,6 +35,7 @@ public class SplashScreen extends javax.swing.JFrame {
             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, Main.class.getResourceAsStream("/cs2450project/resources/RaysHand.ttf")));
         } catch (IOException | FontFormatException e) {}
         initComponents();
+        bindKeys();
         this.setResizable(false);
         this.setVisible(true);
         limitRunTime();
@@ -82,7 +89,31 @@ public class SplashScreen extends javax.swing.JFrame {
     private void limitRunTime() {
         try { Thread.sleep(3000); } catch(InterruptedException e) {}
         new Menu();
-        this.dispose();
+        this.setVisible(false);
+    }
+    
+    //Method: bindKeys()
+    //Purpose: Binds Escape key to exit program and F1 to show info
+    private void bindKeys() {
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        rootPane.getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "popUpDisplay");
+        rootPane.getActionMap().put("popUpDisplay", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(rootPane, "Names & Bronco #s:\n"
+                        + "Steven Phung 010433202\n"
+                        + "Alex Vargas 011633258\n"
+                        + "Team Name: //temporary fix\n"
+                        + "Term: Fall Semester 2019");
+            }
+        });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

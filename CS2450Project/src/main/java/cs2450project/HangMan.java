@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.1
-*   Date last modified: 9/14/2019
+*   Date last modified: 9/25/2019
 *
 *   Purpose: This class generates the hangman game as well as handles
 *           all of the game logic.
@@ -15,10 +15,15 @@ package cs2450project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.util.Random;
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
 public class HangMan extends javax.swing.JFrame {
@@ -46,6 +51,7 @@ public class HangMan extends javax.swing.JFrame {
         currentDateAndTime();
         initVariables();
         initLines(currentWord);
+        bindKeys();
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -760,11 +766,10 @@ public class HangMan extends javax.swing.JFrame {
     }
     
     //Method: gameOver(boolean)
-    //Purpose: If all letters are found, game will switch to endpage displaying
-    //the score, answer, and WIN_IMAGE.
-    //  If the player is unable to guess all the correct letters and the amount
-    //of guesses has been reached, game will end and switch to endpage displaying
-    //the score, answer, and a LOSE_IMAGE.
+    //Purpose: If all letters are found, a winning image is displayed,
+    //if the player is unable to guess all the correct letters and the amount
+    //of guesses has been reached, then a losing image is displayed, then the
+    //game will end and switch to the color game.
     private void gameOver(boolean win) {
         if(win)
             changeImage(7);
@@ -795,6 +800,8 @@ public class HangMan extends javax.swing.JFrame {
         picture.setIcon(icon);
     }
     
+    //Method: revealWord()
+    //Purpose: Displays hidden word on screen
     private void revealWord() {
         String newLines = "";
         for(int i = 0; i < currentWord.length(); i++) {
@@ -804,6 +811,30 @@ public class HangMan extends javax.swing.JFrame {
                 newLines = newLines + letters[i] + " ";
         }
         hiddenWord.setText(newLines);
+    }
+    
+    //Method: bindKeys()
+    //Purpose: Binds Escape key to exit program and F1 to show info
+    private void bindKeys() {
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        rootPane.getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        
+        rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+            KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0), "popUpDisplay");
+        rootPane.getActionMap().put("popUpDisplay", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(rootPane, "Names & Bronco #s:\n"
+                        + "Steven Phung 010433202\n"
+                        + "Alex Vargas 011633258\n"
+                        + "Team Name: //temporary fix\n"
+                        + "Term: Fall Semester 2019");
+            }
+        });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
