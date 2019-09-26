@@ -4,7 +4,7 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.1
+*   Assignment: Point and Click Game v.1.2
 *   Date last modified: 9/25/2019
 *
 *   Purpose: This class will generate a splash screen with custom font
@@ -27,7 +27,7 @@ public class SplashScreen extends javax.swing.JFrame {
     
     Font raysHand;
     
-    //Constructor    
+    //Constructor
     public SplashScreen() {
         try {
             raysHand = Font.createFont(Font.TRUETYPE_FONT, Main.class.getResourceAsStream("/cs2450project/resources/RaysHand.ttf"));
@@ -44,41 +44,54 @@ public class SplashScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gameName = new javax.swing.JLabel();
-        className = new javax.swing.JLabel();
-        teamName = new javax.swing.JLabel();
-        imageGif = new javax.swing.JLabel();
+        splashPanel = new javax.swing.JPanel();
+        classNameLabel = new javax.swing.JLabel();
+        pointAndClickLabel = new javax.swing.JLabel();
+        teamNameLabel = new javax.swing.JLabel();
+        splashImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 400));
         setMinimumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(600, 400));
-        getContentPane().setLayout(null);
 
-        gameName.setFont(new java.awt.Font("RaysHand", 0, 26)); // NOI18N
-        gameName.setForeground(new java.awt.Color(255, 153, 51));
-        gameName.setText("Point & Click Games");
-        getContentPane().add(gameName);
-        gameName.setBounds(180, 130, 240, 40);
+        splashPanel.setBackground(new java.awt.Color(11, 28, 71));
+        splashPanel.setMaximumSize(new java.awt.Dimension(600, 400));
+        splashPanel.setMinimumSize(new java.awt.Dimension(600, 400));
+        splashPanel.setLayout(null);
 
-        className.setFont(new java.awt.Font("RaysHand", 0, 40)); // NOI18N
-        className.setForeground(new java.awt.Color(255, 153, 51));
-        className.setText("CS2450");
-        getContentPane().add(className);
-        className.setBounds(200, 90, 150, 50);
+        classNameLabel.setFont(new java.awt.Font("RaysHand", 0, 36)); // NOI18N
+        classNameLabel.setForeground(new java.awt.Color(255, 153, 51));
+        classNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        classNameLabel.setText("CS2450");
+        splashPanel.add(classNameLabel);
+        classNameLabel.setBounds(180, 100, 130, 30);
 
-        teamName.setFont(new java.awt.Font("RaysHand", 0, 24)); // NOI18N
-        teamName.setForeground(new java.awt.Color(255, 153, 51));
-        teamName.setText("Team: //temporary fix");
-        getContentPane().add(teamName);
-        teamName.setBounds(170, 170, 250, 37);
+        pointAndClickLabel.setFont(new java.awt.Font("RaysHand", 0, 24)); // NOI18N
+        pointAndClickLabel.setForeground(new java.awt.Color(255, 153, 51));
+        pointAndClickLabel.setText("Point & Click Games");
+        splashPanel.add(pointAndClickLabel);
+        pointAndClickLabel.setBounds(190, 140, 220, 30);
 
-        imageGif.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imageGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2450project/resources/splashgif.gif"))); // NOI18N
-        getContentPane().add(imageGif);
-        imageGif.setBounds(0, 0, 600, 400);
+        teamNameLabel.setFont(new java.awt.Font("RaysHand", 0, 24)); // NOI18N
+        teamNameLabel.setForeground(new java.awt.Color(255, 153, 51));
+        teamNameLabel.setText("Team Name: //temporary fix");
+        splashPanel.add(teamNameLabel);
+        teamNameLabel.setBounds(130, 170, 320, 30);
 
-        getAccessibleContext().setAccessibleName("frame1");
+        splashImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cs2450project/resources/splashgif.gif"))); // NOI18N
+        splashPanel.add(splashImage);
+        splashImage.setBounds(0, 0, 600, 400);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(splashPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(splashPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -117,9 +130,10 @@ public class SplashScreen extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel className;
-    private javax.swing.JLabel gameName;
-    private javax.swing.JLabel imageGif;
-    private javax.swing.JLabel teamName;
+    private javax.swing.JLabel classNameLabel;
+    private javax.swing.JLabel pointAndClickLabel;
+    private javax.swing.JLabel splashImage;
+    private javax.swing.JPanel splashPanel;
+    private javax.swing.JLabel teamNameLabel;
     // End of variables declaration//GEN-END:variables
 }

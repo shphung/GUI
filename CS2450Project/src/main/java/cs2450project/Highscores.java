@@ -4,7 +4,7 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.1
+*   Assignment: Point and Click Game v.1.2
 *   Date last modified: 9/25/2019
 *
 *   Purpose: This class generates the high scores from a text file.
@@ -56,6 +56,8 @@ public class Highscores extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(600, 400));
 
         jPanel1.setBackground(new java.awt.Color(11, 28, 71));
+        jPanel1.setMaximumSize(new java.awt.Dimension(600, 400));
+        jPanel1.setMinimumSize(new java.awt.Dimension(600, 400));
 
         backButton.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         backButton.setText("Back");

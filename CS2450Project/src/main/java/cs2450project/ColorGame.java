@@ -4,7 +4,7 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.1
+*   Assignment: Point and Click Game v.1.2
 *   Date last modified: 9/25/2019
 *
 *   Purpose: This class generates the colored buttons game and
@@ -171,12 +171,12 @@ public class ColorGame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(colorGamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+            .addComponent(colorGamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(currentDateAndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(388, Short.MAX_VALUE)))
+                    .addContainerGap(369, Short.MAX_VALUE)))
         );
 
         pack();
@@ -264,7 +264,7 @@ public class ColorGame extends javax.swing.JFrame {
             randomizeButtons();
         }
         if(maxRounds >= 5) {
-            new EndPage(overallScore);
+            new SudokuGame(overallScore);
             ColorGame.this.dispose();
         }
     }

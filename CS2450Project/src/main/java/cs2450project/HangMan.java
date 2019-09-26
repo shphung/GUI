@@ -98,10 +98,13 @@ public class HangMan extends javax.swing.JFrame {
         currentDateAndTime = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(600, 400));
         setMinimumSize(new java.awt.Dimension(600, 400));
 
         hangManPanel.setBackground(new java.awt.Color(11, 28, 71));
         hangManPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        hangManPanel.setMaximumSize(new java.awt.Dimension(600, 400));
+        hangManPanel.setMinimumSize(new java.awt.Dimension(600, 400));
 
         hangManLabel.setFont(new java.awt.Font("RaysHand", 0, 36)); // NOI18N
         hangManLabel.setForeground(new java.awt.Color(255, 153, 51));
