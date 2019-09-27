@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/26/2019
+*   Date last modified: 9/27/2019
 *
 *   Purpose: This class generates a fixed game of sudoku and
 *           handles all the logic.
@@ -28,9 +28,14 @@ import javax.swing.Timer;
 
 public class SudokuGame extends javax.swing.JFrame {
     
+    //Array of JTextFields so we can quickly sort through all our JTextField cells
+    //instead of having to individually call every JTextField
     private JTextField[] listOfCells;
+    //Array that keeps track of our hard coded answer key
     private int[] answerKey;
+    //Boolean array that indicates which cells are correct
     private boolean[] correct;
+    //Keep track of current game score and overall game score.
     private int gameScore, overallScore;
     
     //Constructor
@@ -227,6 +232,8 @@ public class SudokuGame extends javax.swing.JFrame {
         quitButton = new javax.swing.JButton();
         status = new javax.swing.JLabel();
         cheatButton = new javax.swing.JButton();
+        scoreTag = new javax.swing.JLabel();
+        score = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 400));
@@ -259,7 +266,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell1.setPreferredSize(new java.awt.Dimension(40, 40));
 
         num1.setEditable(false);
-        num1.setBackground(new java.awt.Color(240, 240, 240));
         num1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num1.setText("8");
@@ -506,7 +512,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell8.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num8.setEditable(false);
-        num8.setBackground(new java.awt.Color(240, 240, 240));
         num8.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num8.setText("1");
@@ -583,7 +588,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell10.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num10.setEditable(false);
-        num10.setBackground(new java.awt.Color(240, 240, 240));
         num10.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num10.setText("4");
@@ -648,7 +652,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell12.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num12.setEditable(false);
-        num12.setBackground(new java.awt.Color(240, 240, 240));
         num12.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num12.setText("6");
@@ -976,7 +979,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell21.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num21.setEditable(false);
-        num21.setBackground(new java.awt.Color(240, 240, 240));
         num21.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num21.setText("7");
@@ -1007,7 +1009,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell22.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num22.setEditable(false);
-        num22.setBackground(new java.awt.Color(240, 240, 240));
         num22.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num22.setText("4");
@@ -1115,7 +1116,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell25.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num25.setEditable(false);
-        num25.setBackground(new java.awt.Color(240, 240, 240));
         num25.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num25.setText("6");
@@ -1149,7 +1149,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell26.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num26.setEditable(false);
-        num26.setBackground(new java.awt.Color(240, 240, 240));
         num26.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num26.setText("5");
@@ -1227,7 +1226,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell28.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num28.setEditable(false);
-        num28.setBackground(new java.awt.Color(240, 240, 240));
         num28.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num28.setText("5");
@@ -1292,7 +1290,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell30.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num30.setEditable(false);
-        num30.setBackground(new java.awt.Color(240, 240, 240));
         num30.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num30.setText("9");
@@ -1471,7 +1468,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell35.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num35.setEditable(false);
-        num35.setBackground(new java.awt.Color(240, 240, 240));
         num35.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num35.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num35.setText("4");
@@ -1505,7 +1501,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell36.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num36.setEditable(false);
-        num36.setBackground(new java.awt.Color(240, 240, 240));
         num36.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num36.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num36.setText("8");
@@ -1583,7 +1578,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell38.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num38.setEditable(false);
-        num38.setBackground(new java.awt.Color(240, 240, 240));
         num38.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num38.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num38.setText("3");
@@ -1685,7 +1679,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell41.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num41.setEditable(false);
-        num41.setBackground(new java.awt.Color(240, 240, 240));
         num41.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num41.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num41.setText("7");
@@ -1793,7 +1786,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell44.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num44.setEditable(false);
-        num44.setBackground(new java.awt.Color(240, 240, 240));
         num44.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num44.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num44.setText("2");
@@ -1874,7 +1866,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell46.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num46.setEditable(false);
-        num46.setBackground(new java.awt.Color(240, 240, 240));
         num46.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num46.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num46.setText("7");
@@ -1905,7 +1896,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell47.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num47.setEditable(false);
-        num47.setBackground(new java.awt.Color(240, 240, 240));
         num47.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num47.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num47.setText("8");
@@ -2081,7 +2071,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell52.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num52.setEditable(false);
-        num52.setBackground(new java.awt.Color(240, 240, 240));
         num52.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num52.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num52.setText("1");
@@ -2152,7 +2141,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell54.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num54.setEditable(false);
-        num54.setBackground(new java.awt.Color(240, 240, 240));
         num54.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num54.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num54.setText("3");
@@ -2230,7 +2218,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell56.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num56.setEditable(false);
-        num56.setBackground(new java.awt.Color(240, 240, 240));
         num56.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num56.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num56.setText("5");
@@ -2261,7 +2248,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell57.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num57.setEditable(false);
-        num57.setBackground(new java.awt.Color(240, 240, 240));
         num57.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num57.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num57.setText("2");
@@ -2366,7 +2352,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell60.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num60.setEditable(false);
-        num60.setBackground(new java.awt.Color(240, 240, 240));
         num60.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num60.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num60.setText("1");
@@ -2400,7 +2385,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell61.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num61.setEditable(false);
-        num61.setBackground(new java.awt.Color(240, 240, 240));
         num61.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num61.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num61.setText("3");
@@ -2731,7 +2715,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell70.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num70.setEditable(false);
-        num70.setBackground(new java.awt.Color(240, 240, 240));
         num70.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num70.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num70.setText("9");
@@ -2802,7 +2785,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell72.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num72.setEditable(false);
-        num72.setBackground(new java.awt.Color(240, 240, 240));
         num72.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num72.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num72.setText("2");
@@ -2880,7 +2862,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell74.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num74.setEditable(false);
-        num74.setBackground(new java.awt.Color(240, 240, 240));
         num74.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num74.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num74.setText("9");
@@ -3130,7 +3111,6 @@ public class SudokuGame extends javax.swing.JFrame {
         cell81.setMinimumSize(new java.awt.Dimension(40, 40));
 
         num81.setEditable(false);
-        num81.setBackground(new java.awt.Color(240, 240, 240));
         num81.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         num81.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num81.setText("5");
@@ -3191,15 +3171,25 @@ public class SudokuGame extends javax.swing.JFrame {
             }
         });
 
+        scoreTag.setFont(new java.awt.Font("RaysHand", 0, 18)); // NOI18N
+        scoreTag.setForeground(new java.awt.Color(255, 153, 51));
+        scoreTag.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        scoreTag.setText("Score:");
+
+        score.setFont(new java.awt.Font("RaysHand", 0, 48)); // NOI18N
+        score.setForeground(new java.awt.Color(255, 153, 51));
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(gameName)
-                    .addComponent(submitButton))
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(gameName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(submitButton)
+                    .addComponent(scoreTag)
+                    .addComponent(score, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(sudokuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3221,9 +3211,16 @@ public class SudokuGame extends javax.swing.JFrame {
                             .addComponent(currentDateAndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(gameName))
                         .addGap(18, 18, 18)
-                        .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cheatButton)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cheatButton))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(scoreTag)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(score, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(submitButton, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -3249,267 +3246,311 @@ public class SudokuGame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //Methods: num[1-81]KeyTyped
+    //Purpose: updates the cell based on what the user typed
     private void num3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num3KeyTyped
-        verify(3, evt);
+        updateText(3, evt);
     }//GEN-LAST:event_num3KeyTyped
 
     private void num4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num4KeyTyped
-        verify(4, evt);
+        updateText(4, evt);
     }//GEN-LAST:event_num4KeyTyped
 
     private void num5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num5KeyTyped
-        verify(5, evt);
+        updateText(5, evt);
     }//GEN-LAST:event_num5KeyTyped
 
     private void num6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num6KeyTyped
-        verify(6, evt);
+        updateText(6, evt);
     }//GEN-LAST:event_num6KeyTyped
 
     private void num7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num7KeyTyped
-        verify(7, evt);
+        updateText(7, evt);
     }//GEN-LAST:event_num7KeyTyped
 
     private void num9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num9KeyTyped
-        verify(9, evt);
+        updateText(9, evt);
     }//GEN-LAST:event_num9KeyTyped
 
     private void num11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num11KeyTyped
-        verify(11, evt);
+        updateText(11, evt);
     }//GEN-LAST:event_num11KeyTyped
 
     private void num13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num13KeyTyped
-        verify(13, evt);
+        updateText(13, evt);
     }//GEN-LAST:event_num13KeyTyped
 
     private void num14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num14KeyTyped
-        verify(14, evt);
+        updateText(14, evt);
     }//GEN-LAST:event_num14KeyTyped
 
     private void num15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num15KeyTyped
-        verify(15, evt);
+        updateText(15, evt);
     }//GEN-LAST:event_num15KeyTyped
 
     private void num16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num16KeyTyped
-        verify(16, evt);
+        updateText(16, evt);
     }//GEN-LAST:event_num16KeyTyped
 
     private void num17KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num17KeyTyped
-        verify(17, evt);
+        updateText(17, evt);
     }//GEN-LAST:event_num17KeyTyped
 
     private void num18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num18KeyTyped
-        verify(18, evt);
+        updateText(18, evt);
     }//GEN-LAST:event_num18KeyTyped
 
     private void num19KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num19KeyTyped
-        verify(19, evt);
+        updateText(19, evt);
     }//GEN-LAST:event_num19KeyTyped
 
     private void num20KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num20KeyTyped
-        verify(20, evt);
+        updateText(20, evt);
     }//GEN-LAST:event_num20KeyTyped
 
     private void num23KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num23KeyTyped
-        verify(23, evt);
+        updateText(23, evt);
     }//GEN-LAST:event_num23KeyTyped
 
     private void num24KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num24KeyTyped
-        verify(24, evt);
+        updateText(24, evt);
     }//GEN-LAST:event_num24KeyTyped
 
     private void cell27KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cell27KeyTyped
-        verify(27, evt);
+        updateText(27, evt);
     }//GEN-LAST:event_cell27KeyTyped
 
     private void num29KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num29KeyTyped
-        verify(29, evt);
+        updateText(29, evt);
     }//GEN-LAST:event_num29KeyTyped
 
     private void num31KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num31KeyTyped
-        verify(31, evt);
+        updateText(31, evt);
     }//GEN-LAST:event_num31KeyTyped
 
     private void num32KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num32KeyTyped
-        verify(32, evt);
+        updateText(32, evt);
     }//GEN-LAST:event_num32KeyTyped
 
     private void num33KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num33KeyTyped
-        verify(33, evt);
+        updateText(33, evt);
     }//GEN-LAST:event_num33KeyTyped
 
     private void num34KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num34KeyTyped
-        verify(34, evt);
+        updateText(34, evt);
     }//GEN-LAST:event_num34KeyTyped
 
     private void num37KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num37KeyTyped
-        verify(37, evt);
+        updateText(37, evt);
     }//GEN-LAST:event_num37KeyTyped
 
     private void num39KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num39KeyTyped
-        verify(39, evt);
+        updateText(39, evt);
     }//GEN-LAST:event_num39KeyTyped
 
     private void num40KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num40KeyTyped
-        verify(40, evt);
+        updateText(40, evt);
     }//GEN-LAST:event_num40KeyTyped
 
     private void num42KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num42KeyTyped
-        verify(42, evt);
+        updateText(42, evt);
     }//GEN-LAST:event_num42KeyTyped
 
     private void num43KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num43KeyTyped
-        verify(43, evt);
+        updateText(43, evt);
     }//GEN-LAST:event_num43KeyTyped
 
     private void num45KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num45KeyTyped
-        verify(45, evt);
+        updateText(45, evt);
     }//GEN-LAST:event_num45KeyTyped
 
     private void num48KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num48KeyTyped
-        verify(48, evt);
+        updateText(48, evt);
     }//GEN-LAST:event_num48KeyTyped
 
     private void num49KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num49KeyTyped
-        verify(49, evt);
+        updateText(49, evt);
     }//GEN-LAST:event_num49KeyTyped
 
     private void num50KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num50KeyTyped
-        verify(50, evt);
+        updateText(50, evt);
     }//GEN-LAST:event_num50KeyTyped
 
     private void num51KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num51KeyTyped
-        verify(51, evt);
+        updateText(51, evt);
     }//GEN-LAST:event_num51KeyTyped
 
     private void num53KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num53KeyTyped
-        verify(53, evt);
+        updateText(53, evt);
     }//GEN-LAST:event_num53KeyTyped
 
     private void num55KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num55KeyTyped
-        verify(55, evt);
+        updateText(55, evt);
     }//GEN-LAST:event_num55KeyTyped
 
     private void num58KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num58KeyTyped
-        verify(58, evt);
+        updateText(58, evt);
     }//GEN-LAST:event_num58KeyTyped
 
     private void num59KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num59KeyTyped
-        verify(59, evt);
+        updateText(59, evt);
     }//GEN-LAST:event_num59KeyTyped
 
     private void num62KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num62KeyTyped
-        verify(62, evt);
+        updateText(62, evt);
     }//GEN-LAST:event_num62KeyTyped
 
     private void num63KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num63KeyTyped
-        verify(63, evt);
+        updateText(63, evt);
     }//GEN-LAST:event_num63KeyTyped
 
     private void num64KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num64KeyTyped
-        verify(64, evt);
+        updateText(64, evt);
     }//GEN-LAST:event_num64KeyTyped
 
     private void num65KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num65KeyTyped
-        verify(65, evt);
+        updateText(65, evt);
     }//GEN-LAST:event_num65KeyTyped
 
     private void num66KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num66KeyTyped
-        verify(66, evt);
+        updateText(66, evt);
     }//GEN-LAST:event_num66KeyTyped
 
     private void num67KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num67KeyTyped
-        verify(67, evt);
+        updateText(67, evt);
     }//GEN-LAST:event_num67KeyTyped
 
     private void num68KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num68KeyTyped
-        verify(68, evt);
+        updateText(68, evt);
     }//GEN-LAST:event_num68KeyTyped
 
     private void num69KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num69KeyTyped
-        verify(69, evt);
+        updateText(69, evt);
     }//GEN-LAST:event_num69KeyTyped
 
     private void num71KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num71KeyTyped
-        verify(70, evt);
+        updateText(70, evt);
     }//GEN-LAST:event_num71KeyTyped
 
     private void num73KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num73KeyTyped
-        verify(73, evt);
+        updateText(73, evt);
     }//GEN-LAST:event_num73KeyTyped
 
     private void num75KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num75KeyTyped
-        verify(75, evt);
+        updateText(75, evt);
     }//GEN-LAST:event_num75KeyTyped
 
     private void num76KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num76KeyTyped
-        verify(76, evt);
+        updateText(76, evt);
     }//GEN-LAST:event_num76KeyTyped
 
     private void num77KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num77KeyTyped
-        verify(77, evt);
+        updateText(77, evt);
     }//GEN-LAST:event_num77KeyTyped
 
     private void num78KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num78KeyTyped
-        verify(78, evt);
+        updateText(78, evt);
     }//GEN-LAST:event_num78KeyTyped
 
     private void cell79KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cell79KeyTyped
-        verify(79, evt);
+        updateText(79, evt);
     }//GEN-LAST:event_cell79KeyTyped
 
     private void num80KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num80KeyTyped
-        verify(80, evt);
+        updateText(80, evt);
     }//GEN-LAST:event_num80KeyTyped
 
+    //Method: submitButtonActionPerformed()
+    //Purpose: updates the score based on what the user has
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         updateScore();
     }//GEN-LAST:event_submitButtonActionPerformed
 
+    //Method: quitButtonActionPerformed()
+    //Purpose: 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
         new EndPage(overallScore);
         SudokuGame.this.dispose();
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void num2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num2KeyTyped
-        verify(2, evt);
+        updateText(2, evt);
     }//GEN-LAST:event_num2KeyTyped
 
+    //Method: cheatButtonActionPerformed()
+    //Purpose: Fills enter sudoku board so we can check special cases for errors
     private void cheatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheatButtonActionPerformed
+        //Fills entire board
         for(int i = 0; i < listOfCells.length; i++) {
             listOfCells[i].setText(Integer.toString(answerKey[i]));
         }
     }//GEN-LAST:event_cheatButtonActionPerformed
     
+    //Method: updateScore()
+    //Purpose: Submit button will update the score the player recieves.
     private void updateScore() {
+        //try catch will handle the cases where there are still empty or nonvalid
+        //inputs on our game board.
+        //Otherwise if all spaces are filled, score will update and game status
+        //will be checked to either continue or end the game.
         try {
+            //Our array of boolean values, correct[], is false for any incorrect or given answer
+            //Given values are false by default, blank edittable spots are true by default
+            //Any spot found to be incorrect input will be turned false here
+            //correct[] can only be turned false, never true (only take away points)
             for(int i = 0; i < listOfCells.length; i++) {
                 if(Integer.parseInt(listOfCells[i].getText()) != answerKey[i]) {
                     correct[i] = false;
                 }
             }
+            //Score is set to 0 every time to ensure we do not take or give too many points
             int possibleScore = 0;
+            //For every true in our array, we add 10 points
+            //With a maximum possible score of 540
             for(int i = 0; i < correct.length; i++) {
                 if(correct[i])
                     possibleScore = possibleScore + 10;
             }
-            gameScore = possibleScore;
-            gameOver(checkGameStatus());
-        } catch(NumberFormatException e) {
-            status.setForeground(Color.RED);
-            status.setText("<html>Missing<br>values</html>");
             
+            //Set current gameScore using possibleScore
+            gameScore = possibleScore;
+            //50% or higher correct, text is green to indicate a good score
+            //50% to 20% is yellow for an average score
+            //Less than 20% is red for a bad score
+            score.setText(Integer.toString(gameScore));
+            if(gameScore <= 540 && gameScore >= 270) {
+                score.setForeground(Color.GREEN);
+            } else if(gameScore < 270 && gameScore >= 110) {
+                score.setForeground(Color.YELLOW);
+            } else if(gameScore < 110) {
+                score.setForeground(Color.RED);
+            }
+            
+            //Check if game is over
+            gameOver(checkGameStatus());
+            
+        } catch(NumberFormatException e) {
+            //If we were unable to completely sort through the enter array of JLabels,
+            //it's because there was either an invalid input or no input
+            status.setForeground(Color.RED);
+            //Display error message
+            status.setText("<html>Missing or<br>invalid spaces<br>Score was<br>not recorded</html>");
+            //After 2 seconds, JLabel is returned to normal (Message removed)
             Timer timer = new Timer(0, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
                     status.setText("");
                     status.setForeground(Color.BLACK);
                 }
             });
-            timer.setInitialDelay(3000);
+            timer.setInitialDelay(2000);
             timer.setRepeats(false);
             timer.start();
         }
     }
     
+    //Method: checkGameStatus()
+    //Purpose: Returns false (game is not over), if there is any user input that does
+    //not match the answer key. Returns true (game is over), if all answers match key
     private boolean checkGameStatus() {
         for(int i = 0; i < listOfCells.length; i++) {
             if(Integer.parseInt(listOfCells[i].getText()) != answerKey[i]) {
@@ -3519,6 +3560,9 @@ public class SudokuGame extends javax.swing.JFrame {
         return true;
     }
     
+    //Method: gameOver(boolean)
+    //Purpose: If game is won, Add game score to overall score and go to end page
+    //If game is not over, prints "Incorrect solution" to indicate game is not finished
     private void gameOver(boolean gameWon) {
         if(gameWon) {
             overallScore = overallScore + gameScore;
@@ -3544,8 +3588,14 @@ public class SudokuGame extends javax.swing.JFrame {
         timer.start();
     }
     
-    private void verify(int cellNumClicked, KeyEvent e) {
+    //Method: updateText(int, event)
+    //Purpose: Updates the appropriate JTextField based on which cell was clicked
+    //and which key was typed
+    private void updateText(int cellNumClicked, KeyEvent e) {
         int keyTyped = 0;
+        //Based on key typed event, gets the associated virtual key and returns
+        //the literal numerical value 1-9, if a key was pressed that is not 1-9
+        //value returned is simply 0
         switch(e.getKeyChar()) {
             case 49:
                 keyTyped = 1;
@@ -3577,26 +3627,38 @@ public class SudokuGame extends javax.swing.JFrame {
             case 8:
                 keyTyped = 127;
                 break;
+            default:
+                keyTyped = 0;
+                break;
         }
-        
-        if(keyTyped == 0) {
+        //Get the text that the user entered
+        String input = listOfCells[cellNumClicked - 1].getText();
+        //If the user entered more than one number, a letter, or a special character
+        //Text will turn red to indicate inappropriate answer
+        if(keyTyped == 0 || input.matches("^\\d+$") || input.matches(".*[A-Za-z].*") ||
+                input.matches(".*[\\\\\"\\~\\@\\#\\%\\&\\:\\;\\'\\,\\/\\(\\)\\[\\]\\{\\}"
+                        + "\\^\\$\\|\\?\\*\\+\\.\\<\\>\\-\\=\\!\\_].*")) {
             listOfCells[cellNumClicked - 1].setForeground(Color.RED);
+        //If text entered is a numerical value between 1-9, text will be black
         } else if(keyTyped >= 1 && keyTyped <= 9) {
             listOfCells[cellNumClicked - 1].setForeground(Color.BLACK);
         }
-        String input = listOfCells[cellNumClicked - 1].getText();
-        if(input.matches("^\\d+$")) {
-            listOfCells[cellNumClicked - 1].setForeground(Color.RED);
-        }
-        if(keyTyped == 127 && listOfCells[cellNumClicked - 1].getText().matches("[1-9]")) {
+        //If user had entered more than 1 character, text will be red.
+        //When backspacing, if text is a single digit and non-zero (a valid input)
+        //the text will turn black again, otherwise text will stay red
+        if(keyTyped == 127 && input.matches("^\\d$") && !input.matches("0")) {
             listOfCells[cellNumClicked - 1].setForeground(Color.BLACK);
         }
     }
     
+    //Method: initVariables(int)
+    //Purpose: Keep track of overall score
     private void initVariables(int score) {
         overallScore = score;
     }
     
+    //Method: initArrayOfCells()
+    //Purpose: Creates arrays for our JLabels, answerKey, and an array of boolean
     private void initArrayOfCells() {
         //Create an array of JLabels we need to interact with
                                     //Box 1
@@ -3636,7 +3698,7 @@ public class SudokuGame extends javax.swing.JFrame {
                                     num76, num77, num78,
                                     num79, num80, num81 };
         
-        //Create an array as our answer key
+        //Create an array as our answer key, easy visualization of answer key
                                 //Box 1
         answerKey = new int[]{  8, 3, 5,
                                 2, 9, 6,
@@ -3929,6 +3991,8 @@ public class SudokuGame extends javax.swing.JFrame {
     private javax.swing.JTextField num81;
     private javax.swing.JTextField num9;
     private javax.swing.JButton quitButton;
+    private javax.swing.JLabel score;
+    private javax.swing.JLabel scoreTag;
     private javax.swing.JLabel status;
     private javax.swing.JButton submitButton;
     private javax.swing.JPanel sudokuPanel;
