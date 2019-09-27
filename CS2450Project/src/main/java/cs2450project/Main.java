@@ -14,7 +14,6 @@ package cs2450project;
 
 public class Main {
     public static void main(String[] args) {
-        //new SplashScreen();
-        new SudokuGame(600);
+        new SplashScreen();
     }
 }
