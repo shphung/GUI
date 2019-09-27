@@ -3482,6 +3482,7 @@ public class SudokuGame extends javax.swing.JFrame {
     private void cheatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cheatButtonActionPerformed
         //Fills entire board
         for(int i = 0; i < listOfCells.length; i++) {
+            listOfCells[i].setForeground(Color.BLACK);
             listOfCells[i].setText(Integer.toString(answerKey[i]));
         }
     }//GEN-LAST:event_cheatButtonActionPerformed
@@ -3499,7 +3500,9 @@ public class SudokuGame extends javax.swing.JFrame {
             //Any spot found to be incorrect input will be turned false here
             //correct[] can only be turned false, never true (only take away points)
             for(int i = 0; i < listOfCells.length; i++) {
-                if(Integer.parseInt(listOfCells[i].getText()) != answerKey[i]) {
+                if(Integer.parseInt(listOfCells[i].getText()) ==  0) {
+                    throw new NumberFormatException();
+                } else if(Integer.parseInt(listOfCells[i].getText()) != answerKey[i]) {
                     correct[i] = false;
                 }
             }
