@@ -3469,7 +3469,7 @@ public class SudokuGame extends javax.swing.JFrame {
     //Method: quitButtonActionPerformed()
     //Purpose: 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
-        new EndPage(overallScore);
+        new EndPage(gameScore + overallScore);
         SudokuGame.this.dispose();
     }//GEN-LAST:event_quitButtonActionPerformed
 
