@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/25/2019
+*   Date last modified: 10/7/2019
 *
 *   Purpose: This class generates the high scores from a text file.
 *
@@ -250,7 +250,7 @@ public class Highscores extends javax.swing.JFrame {
         try {
             int counter = 0;
             boolean replace = true;
-            String newLine = "";
+            String newHighScoreLine = "";
             File scores = new File("highscores.txt");
             Scanner sc = new Scanner(scores);
 
@@ -259,35 +259,36 @@ public class Highscores extends javax.swing.JFrame {
                 
                 //Gets the score part of the string
                 //ex. ABC.....000, 000 substring is obtained, then typecast as an int
-                String oldLine = sc.nextLine();
-                String line = oldLine.substring(8, Math.min(oldLine.length(), 11));
-                int currentHighScore = Integer.parseInt(line);
+                String oldHighScoreLine = sc.nextLine();
+                String scoreInOldHighScoreLine = oldHighScoreLine.substring(8, Math.min(oldHighScoreLine.length(), 11));
+                int currentHighScore = Integer.parseInt(scoreInOldHighScoreLine);
                 
                 //If our new score is better than any old score
                 //we replace, but we only replace the lowest possible score
                 if(newScore > currentHighScore && replace == true) {
                     
                     //Let user input their initials
-                    String newName = JOptionPane.showInputDialog(this.getRootPane(), "You achieved a high score!"
+                    String highScoreName = JOptionPane.showInputDialog(this.getRootPane(), "You achieved a high score!"
                             + "\nTo save your score, please enter 3 initials: ");
                     
-                    //If no input, no score is saved
-                    if(newName.equals("")) {
-                        return;
-                    //Allow up to only 3 characters
-                    } else if(newName.length() > 3 || newName.length() == 1 || newName.length() == 2) {
+                    //Allow exactly only 3 characters
+                    if(highScoreName.length() != 3) {
                         do {
-                            newName = JOptionPane.showInputDialog(this.getRootPane(), "Please enter 3 initials: ");
-                        } while(newName.length() > 3 || newName.length() == 1 || newName.length() == 2);
+                            //If no input, no score is saved
+                            if(highScoreName.equals("")) {
+                                return;
+                            }
+                            highScoreName = JOptionPane.showInputDialog(this.getRootPane(), "Please enter 3 initials: ");
+                        } while(highScoreName.length() != 3);
                     }
-                    newLine = newName + "....." + newScore;
+                    newHighScoreLine = highScoreName + "....." + newScore;
                     replace = false;
                     //Update new temp file based on new data
-                    updateHighScoresFile(newLine);
-                    updateHighScoresFile(oldLine);
+                    updateHighScoresFile(newHighScoreLine);
+                    updateHighScoresFile(oldHighScoreLine);
                     counter++;
                 } else {
-                    updateHighScoresFile(oldLine);
+                    updateHighScoresFile(oldHighScoreLine);
                 }
                 counter++;
             }
