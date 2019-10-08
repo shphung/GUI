@@ -268,16 +268,17 @@ public class Highscores extends javax.swing.JFrame {
                 if(newScore > currentHighScore && replace == true) {
                     
                     //Let user input their initials
-                    String newName = JOptionPane.showInputDialog("You achieved a high score!"
+                    String newName = JOptionPane.showInputDialog(this.getRootPane(), "You achieved a high score!"
                             + "\nTo save your score, please enter 3 initials: ");
+                    
                     //If no input, no score is saved
-                    if(newName == null) {
+                    if(newName.equals("")) {
                         return;
                     //Allow up to only 3 characters
-                    } else if(newName.length() > 3) {
+                    } else if(newName.length() > 3 || newName.length() == 1 || newName.length() == 2) {
                         do {
-                            newName = JOptionPane.showInputDialog("Please enter a maximum of only 3 initials: ");
-                        } while(newName.length() > 3);
+                            newName = JOptionPane.showInputDialog(this.getRootPane(), "Please enter 3 initials: ");
+                        } while(newName.length() > 3 || newName.length() == 1 || newName.length() == 2);
                     }
                     newLine = newName + "....." + newScore;
                     replace = false;
