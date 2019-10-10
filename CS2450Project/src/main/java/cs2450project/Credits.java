@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/25/2019
+*   Date last modified: 10/9/2019
 *
 *   Purpose: This class generates the credits
 *
@@ -24,6 +24,7 @@ public class Credits extends javax.swing.JFrame {
     //Constructor
     public Credits() {
         initComponents();
+        initToolTips();
         bindKeys();
         this.setResizable(false);
         this.setVisible(true);
@@ -36,7 +37,7 @@ public class Credits extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         name1 = new javax.swing.JLabel();
-        title2 = new javax.swing.JLabel();
+        name2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 400));
@@ -64,10 +65,10 @@ public class Credits extends javax.swing.JFrame {
         name1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         name1.setText("Name: Alex Vargas     ID: 011633258");
 
-        title2.setFont(new java.awt.Font("RaysHand", 0, 24)); // NOI18N
-        title2.setForeground(new java.awt.Color(255, 153, 51));
-        title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        title2.setText("Name: Steven Phung  ID: 010433202");
+        name2.setFont(new java.awt.Font("RaysHand", 0, 24)); // NOI18N
+        name2.setForeground(new java.awt.Color(255, 153, 51));
+        name2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        name2.setText("Name: Steven Phung  ID: 010433202");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,7 +82,7 @@ public class Credits extends javax.swing.JFrame {
                         .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(name1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addComponent(title2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
+                    .addComponent(name2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,7 +93,7 @@ public class Credits extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(name1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(title2)
+                .addComponent(name2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -120,6 +121,15 @@ public class Credits extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    //Method: initToolTips()
+    //Purpose: Implement tool tips for every component
+    private void initToolTips() {
+        title.setToolTipText("Credits");
+        name1.setToolTipText("Team Member Name #1 and Bronco ID");
+        name2.setToolTipText("Team Member Name #2 and Bronco ID");
+        backButton.setToolTipText("Click here to go back to main menu");
+    }
+    
     //Method: bindKeys()
     //Purpose: Binds Escape key to exit program and F1 to show info
     private void bindKeys() {
@@ -148,7 +158,7 @@ public class Credits extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel name1;
+    private javax.swing.JLabel name2;
     private javax.swing.JLabel title;
-    private javax.swing.JLabel title2;
     // End of variables declaration//GEN-END:variables
 }

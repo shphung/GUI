@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.1
-*   Date last modified: 9/25/2019
+*   Date last modified: 10/9/2019
 *
 *   Purpose: This class generates the hangman game as well as handles
 *           all of the game logic.
@@ -48,6 +48,7 @@ public class HangMan extends javax.swing.JFrame {
     //Constructor
     public HangMan() {
         initComponents();
+        initToolTips();
         currentDateAndTime();
         initVariables();
         initLines(currentWord);
@@ -814,6 +815,46 @@ public class HangMan extends javax.swing.JFrame {
                 newLines = newLines + letters[i] + " ";
         }
         hiddenWord.setText(newLines);
+    }
+    
+    //Method: initToolTips()
+    //Purpose: Implements tool tips for every component
+    private void initToolTips() {
+        hangManLabel.setToolTipText("Game of Hang Man");
+        A.setToolTipText("Click here to choose the letter A");
+        B.setToolTipText("Click here to choose the letter B");
+        C.setToolTipText("Click here to choose the letter C");
+        D.setToolTipText("Click here to choose the letter D");
+        E.setToolTipText("Click here to choose the letter E");
+        F.setToolTipText("Click here to choose the letter F");
+        G.setToolTipText("Click here to choose the letter G");
+        H.setToolTipText("Click here to choose the letter H");
+        I.setToolTipText("Click here to choose the letter I");
+        J.setToolTipText("Click here to choose the letter J");
+        K.setToolTipText("Click here to choose the letter K");
+        L.setToolTipText("Click here to choose the letter L");
+        M.setToolTipText("Click here to choose the letter M");
+        N.setToolTipText("Click here to choose the letter N");
+        O.setToolTipText("Click here to choose the letter O");
+        P.setToolTipText("Click here to choose the letter P");
+        Q.setToolTipText("Click here to choose the letter Q");
+        R.setToolTipText("Click here to choose the letter R");
+        S.setToolTipText("Click here to choose the letter S");
+        T.setToolTipText("Click here to choose the letter T");
+        U.setToolTipText("Click here to choose the letter U");
+        V.setToolTipText("Click here to choose the letter V");
+        W.setToolTipText("Click here to choose the letter W");
+        Y.setToolTipText("Click here to choose the letter Y");
+        X.setToolTipText("Click here to choose the letter X");
+        Z.setToolTipText("Click here to choose the letter Z");
+        skipButton.setToolTipText("<html>Click here to skip game of hang man.<br>Will result in score of 0 for this game!</html>");
+        currentScoreLabel.setToolTipText("Showing current score");
+        actualScore.setToolTipText("Showing current score");
+        attemptsCounter.setToolTipText("Showing how many failed attempts");
+        attemptsLabel.setToolTipText("Showing how many failed attempts");
+        hiddenWord.setToolTipText("Hidden word");
+        picture.setToolTipText("Hang man image");
+        currentDateAndTime.setToolTipText("Displays current date and time");
     }
     
     //Method: bindKeys()

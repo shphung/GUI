@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/27/2019
+*   Date last modified: 10/9/2019
 *
 *   Purpose: This class generates a fixed game of sudoku and
 *           handles all the logic.
@@ -43,6 +43,7 @@ public class SudokuGame extends javax.swing.JFrame {
         initComponents();
         initVariables(score);
         initArrayOfCells();
+        initToolTips();
         currentDateAndTime();
         bindKeys();
         this.setResizable(false);
@@ -3791,6 +3792,26 @@ public class SudokuGame extends javax.swing.JFrame {
         });
         timer.setInitialDelay(0);
         timer.start();
+    }
+    
+    //Method: initToolTips()
+    //Purpose: Implement tool tips for every component
+    private void initToolTips() {
+        gameName.setToolTipText("Game of Sudoku");
+        currentDateAndTime.setToolTipText("Displays current date and time");
+        submitButton.setToolTipText("Click here to submit your current board");
+        quitButton.setToolTipText("Click here to quit game with current score");
+        status.setToolTipText("Displays status of game");
+        scoreTag.setToolTipText("Displays current score");
+        score.setToolTipText("Displays current score");
+        cheatButton.setToolTipText("Click here to fill entire board with correct answers");
+        for(int i = 0; i < correct.length; i++) {
+            if(!correct[i]) {
+                listOfCells[i].setToolTipText("Given clue");
+            } else {
+                listOfCells[i].setToolTipText("Place answer here");
+            }
+        }
     }
     
     //Method: bindKeys()

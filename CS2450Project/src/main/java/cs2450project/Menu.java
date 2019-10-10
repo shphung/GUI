@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/25/2019
+*   Date last modified: 10/9/2019
 *
 *   Purpose: This class will generate a menu with appropriate buttons
 * 
@@ -24,6 +24,7 @@ public class Menu extends javax.swing.JFrame {
     //Constructor
     public Menu() {
         initComponents();
+        initToolTips();
         bindKeys();
         this.setResizable(false);
         this.setVisible(true);
@@ -152,6 +153,16 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
+    //Method: initToolTips()
+    //Purpose: Implements tool tips for every component
+    private void initToolTips() {
+        campfireIcon.setToolTipText("Main Menu Image");
+        menuLabel.setToolTipText("Main Menu");
+        playButton.setToolTipText("Click here to play single player games");
+        highscoreButton.setToolTipText("Click here to view high scores");
+        creditsButton.setToolTipText("Click here to view credits");
+    }
+    
     //Method: bindKeys()
     //Purpose: Binds Escape key to exit program and F1 to show info
     private void bindKeys() {

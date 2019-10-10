@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/25/2019
+*   Date last modified: 10/9/2019
 *
 *   Purpose: This class generates the end page and relevant scores.
 *
@@ -27,6 +27,7 @@ public class EndPage extends javax.swing.JFrame {
     //Takes in score, whether or not the user won, which image to use, and the correct word.
     public EndPage(int score) {
         initComponents();
+        initToolTips();
         display(score);
         checkScore(score);
         bindKeys();
@@ -139,6 +140,14 @@ public class EndPage extends javax.swing.JFrame {
         timer.start();
     }
 
+    //Method: initToolTips()
+    //Purpose: Implement tool tips for every component
+    private void initToolTips() {
+        title.setToolTipText("Game over!");
+        score.setToolTipText("Your score this session");
+        backButton.setToolTipText("Click here to go back to the main menu");
+    }
+    
     //Method: bindKeys()
     //Purpose: Binds Escape key to exit program and F1 to show info
     private void bindKeys() {

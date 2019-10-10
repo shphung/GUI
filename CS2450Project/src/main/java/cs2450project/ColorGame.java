@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/25/2019
+*   Date last modified: 10/9/2019
 *
 *   Purpose: This class generates the colored buttons game and
 *           handles all the logic.
@@ -44,6 +44,7 @@ public class ColorGame extends javax.swing.JFrame {
     //Constructor
     public ColorGame(int score) {
         initComponents();
+        initToolTips();
         initVariables(score);
         currentDateAndTime();
         randomizeAnswer();
@@ -443,6 +444,18 @@ public class ColorGame extends javax.swing.JFrame {
         Random rng = new Random();
         int rdm = rng.nextInt(range);
         return rdm;
+    }
+    
+    //Method: initToolTips()
+    //Purpose: Implement tool tips for every component
+    private void initToolTips() {
+        currentDateAndTime.setToolTipText("Displays current date and time");
+        button1.setToolTipText("Click here to choose this button's color");
+        button2.setToolTipText("Click here to choose this button's color");
+        button3.setToolTipText("Click here to choose this button's color");
+        button4.setToolTipText("Click here to choose this button's color");
+        button5.setToolTipText("Click here to choose this button's color");
+        textColor.setToolTipText("Choose a button based on this text's color");
     }
     
     //Method: bindKeys()

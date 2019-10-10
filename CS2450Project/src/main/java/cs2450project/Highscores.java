@@ -5,7 +5,7 @@
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
 *   Assignment: Point and Click Game v.1.2
-*   Date last modified: 10/7/2019
+*   Date last modified: 10/9/2019
 *
 *   Purpose: This class generates the high scores from a text file.
 *
@@ -25,12 +25,12 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-
 public class Highscores extends javax.swing.JFrame {
     
     //Constructor
     public Highscores() {
         initComponents();
+        initToolTips();
         bindKeys();
         checkFile();
         loadFile();
@@ -313,6 +313,19 @@ public class Highscores extends javax.swing.JFrame {
             scores.close();
         } catch (IOException ex) {
         }
+    }
+    
+    //Method: initToolTips()
+    //Purpose: Implement tool tips for every component
+    private void initToolTips() {
+        backButton.setToolTipText("Click here to go back to main menu");
+        clearList.setToolTipText("Click here to clear the high scores");
+        title.setToolTipText("High scores!");
+        highscore1.setToolTipText("High score #1");
+        highscore2.setToolTipText("High score #2");
+        highscore3.setToolTipText("High score #3");
+        highscore4.setToolTipText("High score #4");
+        highscore5.setToolTipText("High score #5");
     }
     
     //Method: bindKeys()
