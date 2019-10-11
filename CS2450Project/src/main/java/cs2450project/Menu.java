@@ -4,8 +4,8 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.2
-*   Date last modified: 10/9/2019
+*   Assignment: Point and Click Game v.1.3
+*   Date last modified: 10/11/2019
 *
 *   Purpose: This class will generate a menu with appropriate buttons
 * 
@@ -26,6 +26,7 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         initToolTips();
         bindKeys();
+        this.setTitle("Menu");
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -39,6 +40,7 @@ public class Menu extends javax.swing.JFrame {
         highscoreButton = new javax.swing.JButton();
         playButton = new javax.swing.JButton();
         menuLabel = new javax.swing.JLabel();
+        pongButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 400));
@@ -79,6 +81,14 @@ public class Menu extends javax.swing.JFrame {
         menuLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         menuLabel.setText("Main Menu");
 
+        pongButton.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        pongButton.setText("Pong");
+        pongButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pongButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,7 +104,8 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(creditsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(highscoreButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(playButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(playButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pongButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -105,6 +116,8 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(pongButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(highscoreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,6 +166,13 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
+    //Method: pongButtonActionPerformed()
+    //Purpose: Click to create a pong game and close menu
+    private void pongButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pongButtonActionPerformed
+        new PongGame();
+        this.dispose();
+    }//GEN-LAST:event_pongButtonActionPerformed
+
     //Method: initToolTips()
     //Purpose: Implements tool tips for every component
     private void initToolTips() {
@@ -194,5 +214,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel menuLabel;
     private javax.swing.JButton playButton;
+    private javax.swing.JButton pongButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,8 +4,8 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.1
-*   Date last modified: 10/9/2019
+*   Assignment: Point and Click Game v.1.3
+*   Date last modified: 10/11/2019
 *
 *   Purpose: This class generates the hangman game as well as handles
 *           all of the game logic.
@@ -28,6 +28,7 @@ import javax.swing.Timer;
 
 public class HangMan extends javax.swing.JFrame {
     
+    //Word bank
     private static final String[] WORD_BANK = {
         "abstract",
         "cemetary",
@@ -53,6 +54,7 @@ public class HangMan extends javax.swing.JFrame {
         initVariables();
         initLines(currentWord);
         bindKeys();
+        this.setTitle("Hang Man Game");
         this.setResizable(false);
         this.setVisible(true);
     }

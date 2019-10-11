@@ -4,8 +4,8 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.2
-*   Date last modified: 10/9/2019
+*   Assignment: Point and Click Game v.1.3
+*   Date last modified: 10/11/2019
 *
 *   Purpose: This class generates the end page and relevant scores.
 *
@@ -24,13 +24,25 @@ import javax.swing.Timer;
 public class EndPage extends javax.swing.JFrame {
 
     //Constructor
-    //Takes in score, whether or not the user won, which image to use, and the correct word.
     public EndPage(int score) {
         initComponents();
         initToolTips();
         display(score);
         checkScore(score);
         bindKeys();
+        this.setTitle("End Page");
+        this.setResizable(false);
+        this.setVisible(true);
+    }
+    
+    //Modified Constructor for pong
+    //Takes in player and score
+    public EndPage(int playerNumber, int score) {
+        initComponents();
+        initToolTips();
+        display(playerNumber, score);
+        bindKeys();
+        this.setTitle("End Page");
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -116,11 +128,17 @@ public class EndPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    //Method: display(int player, int scoreIn)
+    //Purpose: Displays player who won pong
+    private void display(int player, int scoreIn) {
+        score.setText("Player " + player + " has won with a score of: " + scoreIn + "!");
+    }
+    
     //Method: display()
     //Purpose: Displays the correct information.
     //If game was won, text will display "You won!" instead of "Game Over!"
     private void display(int scoreIn) {
-        score.setText("Your Score: " + Integer.toString(scoreIn) + "!");
+        score.setText("Your Score: " + scoreIn + "!");
     }
     
     //Method: checkScore(int)

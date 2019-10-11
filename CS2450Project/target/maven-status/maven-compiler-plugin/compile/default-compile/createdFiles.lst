@@ -1,6 +1,8 @@
 cs2450project\HangMan$10.class
+cs2450project\Paddle.class
 cs2450project\HangMan$30.class
 cs2450project\HangMan$20.class
+cs2450project\Ball.class
 cs2450project\ColorGame$6.class
 cs2450project\EndPage.class
 cs2450project\HangMan$13.class
@@ -10,6 +12,7 @@ cs2450project\HangMan$4.class
 cs2450project\SudokuGame$2.class
 cs2450project\HangMan$23.class
 cs2450project\SudokuGame$10.class
+cs2450project\PongGame$3.class
 cs2450project\SudokuGame$30.class
 cs2450project\HangMan$26.class
 cs2450project\SudokuGame$50.class
@@ -33,6 +36,7 @@ cs2450project\SudokuGame$4.class
 cs2450project\SudokuGame$46.class
 cs2450project\SudokuGame$59.class
 cs2450project\HangMan$15.class
+cs2450project\Menu$6.class
 cs2450project\SudokuGame$19.class
 cs2450project\Menu.class
 cs2450project\SudokuGame$29.class
@@ -41,7 +45,9 @@ cs2450project\SudokuGame$52.class
 cs2450project\HangMan$28.class
 cs2450project\SudokuGame$22.class
 cs2450project\SudokuGame$62.class
+cs2450project\PongGame$5.class
 cs2450project\SudokuGame$12.class
+cs2450project\PongPanel.class
 cs2450project\HangMan$9.class
 cs2450project\SplashScreen$1.class
 cs2450project\SudokuGame$35.class
@@ -66,6 +72,7 @@ cs2450project\SudokuGame$34.class
 cs2450project\Credits$1.class
 cs2450project\Menu$4.class
 cs2450project\SudokuGame$54.class
+cs2450project\PongGame$4.class
 cs2450project\SudokuGame$21.class
 cs2450project\SudokuGame$9.class
 cs2450project\SudokuGame$31.class
@@ -86,6 +93,7 @@ cs2450project\EndPage$3.class
 cs2450project\HangMan$14.class
 cs2450project\HangMan$11.class
 cs2450project\HangMan$31.class
+cs2450project\PongGame.class
 cs2450project\HangMan$2.class
 cs2450project\ColorGame$7.class
 cs2450project\SudokuGame$61.class
@@ -98,6 +106,7 @@ cs2450project\HangMan$17.class
 cs2450project\SudokuGame$16.class
 cs2450project\Highscores$4.class
 cs2450project\EndPage$4.class
+cs2450project\PongGame$2.class
 cs2450project\HangMan$6.class
 cs2450project\Menu$2.class
 cs2450project\SudokuGame$26.class
@@ -125,5 +134,7 @@ cs2450project\SudokuGame$1.class
 cs2450project\SudokuGame$38.class
 cs2450project\HangMan$12.class
 cs2450project\SudokuGame$60.class
+cs2450project\PongGame$1.class
+cs2450project\PongPanel$1.class
 cs2450project\SudokuGame$8.class
 cs2450project\SudokuGame$43.class

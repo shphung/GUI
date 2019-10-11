@@ -4,8 +4,8 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.2
-*   Date last modified: 10/9/2019
+*   Assignment: Point and Click Game v.1.3
+*   Date last modified: 10/11/2019
 *
 *   Purpose: This class generates the credits
 *
@@ -26,6 +26,7 @@ public class Credits extends javax.swing.JFrame {
         initComponents();
         initToolTips();
         bindKeys();
+        this.setTitle("Credits");
         this.setResizable(false);
         this.setVisible(true);
     }

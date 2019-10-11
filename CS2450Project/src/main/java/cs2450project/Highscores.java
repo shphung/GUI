@@ -4,8 +4,8 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.2
-*   Date last modified: 10/9/2019
+*   Assignment: Point and Click Game v.1.3
+*   Date last modified: 10/11/2019
 *
 *   Purpose: This class generates the high scores from a text file.
 *
@@ -34,6 +34,7 @@ public class Highscores extends javax.swing.JFrame {
         bindKeys();
         checkFile();
         loadFile();
+        this.setTitle("High Scores");
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -168,6 +169,8 @@ public class Highscores extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    //Method: clearListActionPerformed()
+    //Purpose: Deletes high scores list
     private void clearListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearListActionPerformed
         deleteFile();
         this.dispose();
@@ -271,8 +274,11 @@ public class Highscores extends javax.swing.JFrame {
                     String highScoreName = JOptionPane.showInputDialog(this.getRootPane(), "You achieved a high score!"
                             + "\nTo save your score, please enter 3 initials: ");
                     
+                    //If user hits cancel, no score is saved
+                    if(highScoreName == null) {
+                        break;
                     //Allow exactly only 3 characters
-                    if(highScoreName.length() != 3) {
+                    } else if(highScoreName.length() != 3) {
                         do {
                             //If no input, no score is saved
                             if(highScoreName.equals("")) {

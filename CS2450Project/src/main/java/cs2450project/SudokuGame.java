@@ -4,8 +4,8 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.2
-*   Date last modified: 10/9/2019
+*   Assignment: Point and Click Game v.1.3
+*   Date last modified: 10/11/2019
 *
 *   Purpose: This class generates a fixed game of sudoku and
 *           handles all the logic.
@@ -46,6 +46,7 @@ public class SudokuGame extends javax.swing.JFrame {
         initToolTips();
         currentDateAndTime();
         bindKeys();
+        this.setTitle("Sudoku Game");
         this.setResizable(false);
         this.setVisible(true);
     }
@@ -3471,7 +3472,7 @@ public class SudokuGame extends javax.swing.JFrame {
     //Purpose: 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
         new EndPage(gameScore + overallScore);
-        SudokuGame.this.dispose();
+        this.dispose();
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void num2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num2KeyTyped

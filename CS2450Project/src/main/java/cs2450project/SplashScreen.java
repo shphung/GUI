@@ -4,8 +4,8 @@
 *   Author: Steven Phung & Alex Vargas
 *   Class: CS 2450.01 - Programming Graphical User Interfaces
 *
-*   Assignment: Point and Click Game v.1.2
-*   Date last modified: 9/25/2019
+*   Assignment: Point and Click Game v.1.3
+*   Date last modified: 10/11/2019
 *
 *   Purpose: This class will generate a splash screen with custom font
 * 
@@ -17,18 +17,22 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+import org.apache.commons.io.FileUtils;
 
 public class SplashScreen extends javax.swing.JFrame {
     
+    //Custom font
     Font raysHand;
     
     //Constructor
     public SplashScreen() {
+        checkResources();
         try {
             raysHand = Font.createFont(Font.TRUETYPE_FONT, Main.class.getResourceAsStream("/cs2450project/resources/RaysHand.ttf"));
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -127,6 +131,37 @@ public class SplashScreen extends javax.swing.JFrame {
                         + "Term: Fall Semester 2019");
             }
         });
+    }
+    
+    //Method: checkResources()
+    //Purpose: Copys resources to bin folder if that folder is missing or missing resources
+    private void checkResources() {
+        //Relative path for main folder and bin folder
+        String mainFolder = "src/main/java/cs2450project/resources";
+        String binFolder = "target/classes/cs2450project/resources";
+        
+        //Create file objects for both
+        File mainResources = new File(mainFolder);
+        File binResources = new File(binFolder);
+        
+        //If bin folder is missing, create a copy using main folder resources
+        if(!binResources.exists()) {
+            try {
+                FileUtils.copyDirectory(mainResources, binResources);
+            } catch(IOException e) {}
+        } else {
+            File[] listOfMainResources = mainResources.listFiles();
+            File[] listOfBinResources = binResources.listFiles();
+            
+            //If bin folder is not missing but is missing files, delete folder
+            //and create a new from scratch using main folder resources
+            if(listOfMainResources.length != listOfBinResources.length) {
+                binResources.delete();
+                try {
+                    FileUtils.copyDirectory(mainResources, binResources);
+                } catch(IOException e) {}
+            }
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
